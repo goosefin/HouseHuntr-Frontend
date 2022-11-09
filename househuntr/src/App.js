@@ -1,9 +1,14 @@
 import React, {useState} from 'react'
+import NavBar from './components/NavBar';
+import Wishlist from './components/Wishlist';
 
 const App = () => {
   return (
-    <div>
-      <h1>Frontend</h1>
+    <div className="dashboard">
+      <NavBar />
+      <div className='list'>
+        <Wishlist />
+      </div> 
     </div>
   )
 }

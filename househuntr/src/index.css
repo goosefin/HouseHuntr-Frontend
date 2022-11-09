@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav{
+  display: flex;
+  flex-direction: column;
+  max-width: 20em;
+  margin-left: 10px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+#navLogo{
+  max-width: 7em;
+  align-self:auto;
+  border-radius: 5em;
+}
+
+i{
+  font-style: normal;
+  font-size: 30;
+}
+
+/* .dashboard{
+  display:flex;
+} */
+
+.column-title{
+  background-color: rgb(64, 64, 64);
+  color:white;
+  text-align: center;
+  max-height: 2em;
+}
+
+#wishlist{
+  border:1.5px solid black;
+  max-width: 25%;
+}
+
+.list{
+  display:flex;
+}
