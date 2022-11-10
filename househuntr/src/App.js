@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import NavBar from './components/NavBar';
 import Wishlist from './components/Wishlist';
 import Login from './components/Login'
+import Register from './components/Register';
 
 const App = () => {
   const [user,setUser] = useState([])
   const [apartments, setApartments] = useState([])
+  const [loggedIn, setLoggedIn] = useState(false)
 
   const getApartments = () =>{
     fetch('http://localhost:8000/api/v1/apartment',{
@@ -26,7 +28,6 @@ const App = () => {
 
   const register = async (e) =>{
     e.preventDefault()
-    console.log(e.target)
     const url = 'http://localhost:8000/api/v1/user/register'
     try{
       const res = await fetch(url, {
@@ -41,9 +42,10 @@ const App = () => {
         }
       })
       console.log(res)
-      if(res.status === 200){
+      const response = await res.json()
+      console.log(response.data)
+      if(res.status === 201){
         console.log('register works')
-        getApartments()
       }
     }
     catch(err){
@@ -76,6 +78,7 @@ const App = () => {
       if(res.status === 200){
         // getApartments()
         setUser(response.data)
+        setLoggedIn(true)
       }
     }
     catch(err){
@@ -92,6 +95,7 @@ const App = () => {
     <div className="dashboard">
       <NavBar />
       <Login login={login}/>
+      <Register register={register}/>
       <div className='list'>
         {/* <Wishlist /> */}
       </div> 
