@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import Wishlist from './components/Wishlist';
 import Login from './components/Login'
 import Register from './components/Register';
+import NewApartment from './components/NewApartment';
 
 const App = () => {
   const [user,setUser] = useState([])
@@ -99,6 +100,7 @@ const App = () => {
       <div className='list'>
         {/* <Wishlist /> */}
       </div> 
+      <NewApartment />
     </div>
   )
 }
