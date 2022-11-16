@@ -1,10 +1,19 @@
 import React,{ useState } from 'react'
 
-const NewApartment = () =>{
+const NewApartment = (props) =>{
+    const addApartment = (e) =>{
+        e.preventDefault()
+        props.newApartment()
+    }
+
+    const checkOutput = (e) =>{
+        console.log(e.target.value)
+    }
+    
     return(
         <div>
             <h2>New Apartment Form</h2>
-            <form>
+            <form onSubmit={addApartment}>
                 <label htmlFor="address">Address:</label>
                 <input type="text" id="address" name="address"/>
                 <label htmlFor="bedrooms">Bedrooms:</label>
@@ -12,7 +21,7 @@ const NewApartment = () =>{
                 <label htmlFor="price">Price:</label>
                 <input type="number" id="price" name="price"/>
                 <label htmlFor="cats">Cats:</label>
-                <input type="checkbox" id="address" name="address"/>
+                <input type="checkbox" id="address" name="address" onChange={checkOutput}/>
                 <label htmlFor="dogs">Dogs:</label>
                 <input type="checkbox" id="dogs" name="dogs"/>
                 <label htmlFor="washer">Washer:</label>

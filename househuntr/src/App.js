@@ -4,6 +4,7 @@ import Wishlist from './components/Wishlist';
 import Login from './components/Login'
 import Register from './components/Register';
 import NewApartment from './components/NewApartment';
+import Apartment from './components/Apartment';
 
 const App = () => {
   const [user,setUser] = useState([])
@@ -87,6 +88,27 @@ const App = () => {
     }
   }
 
+  const newApartment = async (event) =>{
+    //event.preventDefault()
+    let url = 'http://localhost:8000/api/v1/apartments'
+    fetch(url , {
+        method: 'POST',
+        credentials:'include'
+    })
+    .then(res =>{
+        console.log(res)
+        if(res.status === 201){
+            return res.json()
+        } else{
+            return []
+        }
+    })
+    .then(data =>{
+        console.log(data.data)
+        setApartments(data.data)
+    })
+  }
+
 
   // useEffect(() =>{
   //   getApartment()
@@ -100,7 +122,7 @@ const App = () => {
       <div className='list'>
         {/* <Wishlist /> */}
       </div> 
-      <NewApartment />
+      <NewApartment newApartment={newApartment}/>
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import Button from 'react-bootstrap/Button'
-import NewApartment from './NewApartment'
 
 const NavBar = () =>{
     const [openForm, setOpenForm] = useState(false)
@@ -21,7 +20,6 @@ const NavBar = () =>{
                 <h3>Account</h3>
                 <Button variant="outline-secondary"><i class="bi bi-door-open" style={{fontSize:20}}></i>Log Out</Button>
             </div>
-            <NewApartment />
             {/* 
                 search bar possibly
                 add new listing 
