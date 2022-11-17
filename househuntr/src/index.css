@@ -50,3 +50,9 @@ i{
 .list{
   display:flex;
 }
+
+#footer-logo{
+  max-width: 7em;
+  align-self:auto;
+  border-radius: 5em;
+}
