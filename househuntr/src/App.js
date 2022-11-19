@@ -8,6 +8,7 @@ import Apartment from './components/Apartment';
 import Footer from './components/Footer'
 import Scheduled from './components/Scheduled';
 import Seen from './components/Seen'
+import Applied from './components/Applied';
 
 class App extends Component{
   constructor(){
@@ -156,6 +157,7 @@ class App extends Component{
         <Wishlist apartments={this.state.apartments}/>
         <Scheduled apartments={this.state.apartments}/>
         <Seen apartments={this.state.apartments}/>
+        <Applied apartments={this.state.apartments}/>
       </div> 
       <NewApartment newApartment={this.newApartment} handleAddApartment={this.handleAddApartment}/>
       <Footer />

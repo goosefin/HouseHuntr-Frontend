@@ -42,13 +42,14 @@ i{
   max-height: 2em;
 }
 
-#wishlist, #scheduled, #seen{
+#wishlist, #scheduled, #seen, #applied{
   border:1.5px solid black;
-  max-width: 25%;
+  max-width: 35%;
 }
 
 .list{
   display:flex;
+  justify-content: space-evenly;
 }
 
 #footer-logo{
@@ -56,3 +57,4 @@ i{
   align-self:auto;
   border-radius: 5em;
 }
+
