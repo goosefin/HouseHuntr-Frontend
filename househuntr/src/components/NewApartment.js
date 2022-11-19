@@ -25,7 +25,7 @@ class NewApartment extends Component{
 
     newApartment = (e) =>{
         e.preventDefault()
-        console.log(e.target)
+        // console.log(e.target)
         const apartmentData= {
           address:this.state.address,
           bedrooms:this.state.bedrooms,
@@ -44,7 +44,7 @@ class NewApartment extends Component{
           seen:this.state.seen,
           applied:this.state.applied
         }
-        console.log('Apartment Data', apartmentData)
+        // console.log('Apartment Data', apartmentData)
         for(const key in apartmentData){
           //console.log(apartmentData[key])
           if(apartmentData[key] === undefined){
@@ -55,7 +55,7 @@ class NewApartment extends Component{
             apartmentData[key] = apartmentData[key]
           }
         }
-        console.log('Looped Object', apartmentData)
+        // console.log('Looped Object', apartmentData)
         let url = 'http://localhost:8000/api/v1/apartments/'
         fetch(url , {
             method: 'POST',
@@ -66,7 +66,7 @@ class NewApartment extends Component{
             credentials:'include'
         })
         .then(res =>{
-            console.log(res)
+            // console.log(res)
             if(res.status === 201){
                 return res.json()
             } else{
@@ -74,7 +74,7 @@ class NewApartment extends Component{
             }
         })
         .then(data =>{
-            console.log(data.data)
+            // console.log(data.data)
             this.props.handleAddApartment(data.data)
             this.setState({
                 address: '',
@@ -96,22 +96,13 @@ class NewApartment extends Component{
             })
         })
       }
-    
-    // addApartment = (e) =>{
-    //     e.preventDefault()
-    //     this.props.newApartment()
-    // }
-
-    checkOutput = (e) =>{
-        console.log(e.target.value)
-    }
 
     handleChange = (e) =>{
-        console.log(e.target.id)
+        // console.log(e.target.id)
         this.setState({
           [e.target.id]:e.target.value
         })
-      }
+    }
     
     render(){
         return(

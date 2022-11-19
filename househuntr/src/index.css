@@ -47,6 +47,11 @@ i{
   max-width: 25%;
 }
 
+#scheduled{
+  border:1.5px solid black;
+  max-width: 25%;
+}
+
 .list{
   display:flex;
 }

@@ -6,6 +6,7 @@ import Register from './components/Register';
 import NewApartment from './components/NewApartment';
 import Apartment from './components/Apartment';
 import Footer from './components/Footer'
+import Scheduled from './components/Scheduled';
 
 class App extends Component{
   constructor(){
@@ -30,13 +31,13 @@ class App extends Component{
       }
     })
     .then(data => {
-      console.log(data.data)
+      // console.log(data.data)
       this.setState({apartments:data.data})
     })
   }
 
   componentDidMount(){
-    console.log('Component did mount')
+    //console.log('Component did mount')
     this.getApartments()
   }
 
@@ -73,7 +74,7 @@ class App extends Component{
       const response = await res.json()
       console.log(response.data)
       if(res.status === 201){
-        console.log('register works')
+        // console.log('register works')
         this.setState({
           username:'',
           password: '',
@@ -151,18 +152,10 @@ class App extends Component{
       <Login login={this.login} handleChange={this.handleChange}/>
       <Register register={this.register} handleChange={this.handleChange}/>
       <div className='list'>
-        {/* <Wishlist /> */}
+        <Wishlist apartments={this.state.apartments}/>
+        <Scheduled apartments={this.state.apartments}/>
       </div> 
       <NewApartment newApartment={this.newApartment} handleAddApartment={this.handleAddApartment}/>
-      {
-        this.state.apartments.map((apartment,i) =>{
-          return(
-            <>
-              <Apartment address={apartment.address} bedrooms={apartment.bedrooms} price={apartment.price} cats={apartment.cats} dogs={apartment.dogs} washer={apartment.washer} dryer={apartment.dryer} dishwasher={apartment.dishwasher} outdoor_space={apartment.outdoor_space} elevator={apartment.elevator} doorman={apartment.doorman} link={apartment.link} scheduled_showing={apartment.scheduled_showing} scheduled_showing_time={apartment.scheduled_showing_time} seen={apartment.seen} applied={apartment.applied} username={this.state.username} />
-            </>
-          )
-        })
-      }
       <Footer />
     </div>
     )
