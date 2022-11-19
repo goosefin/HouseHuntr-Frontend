@@ -42,12 +42,7 @@ i{
   max-height: 2em;
 }
 
-#wishlist{
-  border:1.5px solid black;
-  max-width: 25%;
-}
-
-#scheduled{
+#wishlist, #scheduled, #seen{
   border:1.5px solid black;
   max-width: 25%;
 }
