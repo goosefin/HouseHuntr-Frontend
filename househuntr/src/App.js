@@ -4,7 +4,6 @@ import Wishlist from './components/Wishlist';
 import Login from './components/Login'
 import Register from './components/Register';
 import NewApartment from './components/NewApartment';
-import Apartment from './components/Apartment';
 import Footer from './components/Footer'
 import Scheduled from './components/Scheduled';
 import Seen from './components/Seen'
@@ -46,6 +45,23 @@ class App extends Component{
   handleChange = (e) =>{
     this.setState({
       [e.target.id]:e.target.value
+    })
+  }
+
+  updateState = (apartment) =>{
+    const copyApartments = [...this.state.apartments]
+    copyApartments.push(apartment)
+    this.setState({
+      apartments:copyApartments
+    })
+  }
+
+  updateDeletedState = (id) =>{
+    const copyApartments = [this.state.apartments]
+    const findIdx = this.state.apartments.findIndex((apt) => apt.id === id)
+    copyApartments.splice(findIdx,1)
+    this.setState({
+      apartments:copyApartments
     })
   }
 
@@ -154,10 +170,10 @@ class App extends Component{
       <Login login={this.login} handleChange={this.handleChange}/>
       <Register register={this.register} handleChange={this.handleChange}/>
       <div className='list'>
-        <Wishlist apartments={this.state.apartments}/>
-        <Scheduled apartments={this.state.apartments}/>
-        <Seen apartments={this.state.apartments}/>
-        <Applied apartments={this.state.apartments}/>
+        <Wishlist apartments={this.state.apartments} handleDeletedState={this.updateDeletedState}/>
+        <Scheduled apartments={this.state.apartments} handleDeletedState={this.updateDeletedState}/>
+        <Seen apartments={this.state.apartments} handleDeletedState={this.updateDeletedState}/>
+        <Applied apartments={this.state.apartments} handleDeletedState={this.updateDeletedState}/>
       </div> 
       <NewApartment newApartment={this.newApartment} handleAddApartment={this.handleAddApartment}/>
       <Footer />

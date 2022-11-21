@@ -95,7 +95,7 @@ class NewApartment extends Component{
                 applied: false,
             })
         })
-      }
+    }
 
     handleChange = (e) =>{
         // console.log(e.target.id)
