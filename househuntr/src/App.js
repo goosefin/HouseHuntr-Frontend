@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import Scheduled from './components/Scheduled';
 import Seen from './components/Seen'
 import Applied from './components/Applied';
+// import EditApartment from './components/EditApartment';
 
 class App extends Component{
   constructor(){
@@ -136,8 +137,8 @@ class App extends Component{
     }
   }
 
-  editApartment= async (e,apartment) =>{
-    e.preventDefault()
+  editApartment= (apartment) =>{
+    // e.preventDefault()
     let url = 'http://localhost:8000/api/v1/apartments/' + apartment.id
     fetch(url , {
         method: 'PUT',
@@ -157,8 +158,11 @@ class App extends Component{
     })
     .then(data =>{
         console.log(data.data)
+        const copyApt = [...this.state.apartments]
+        const idx = this.state.apartments.findIndex((apt) => apt.id === data.data.id)
+        copyApt[idx] = data.data
         this.setState({
-          apartments:data.data
+          apartments:copyApt
         })
     })
   }
@@ -170,12 +174,12 @@ class App extends Component{
       <Login login={this.login} handleChange={this.handleChange}/>
       <Register register={this.register} handleChange={this.handleChange}/>
       <div className='list'>
-        <Wishlist apartments={this.state.apartments} handleDeletedState={this.updateDeletedState}/>
-        <Scheduled apartments={this.state.apartments} handleDeletedState={this.updateDeletedState}/>
-        <Seen apartments={this.state.apartments} handleDeletedState={this.updateDeletedState}/>
-        <Applied apartments={this.state.apartments} handleDeletedState={this.updateDeletedState}/>
+        <Wishlist apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment}/>
+        <Scheduled apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment}/>
+        <Seen apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment}/>
+        <Applied apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment}/>
       </div> 
-      <NewApartment newApartment={this.newApartment} handleAddApartment={this.handleAddApartment}/>
+      <NewApartment handleAddApartment={this.handleAddApartment}/>
       <Footer />
     </div>
     )

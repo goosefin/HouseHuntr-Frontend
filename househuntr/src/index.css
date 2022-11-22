@@ -58,3 +58,9 @@ i{
   border-radius: 5em;
 }
 
+#new_apt_form{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 25%;
+  flex-direction: column;
+}

@@ -108,7 +108,7 @@ class NewApartment extends Component{
         return(
             <div>
                 <h2>New Apartment Form</h2>
-                <form onSubmit={this.newApartment}>
+                <form id="new_apt_form" onSubmit={this.newApartment}>
                     <label htmlFor="address">Address:</label>
                     <input type="text" id="address" name="address" onChange={this.handleChange}/>
                     <label htmlFor="bedrooms">Bedrooms:</label>
