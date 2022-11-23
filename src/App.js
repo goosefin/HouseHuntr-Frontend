@@ -20,8 +20,10 @@ class App extends Component{
     }
   }
 
+  // ----------------- ROUTES --------------- //
+
   getApartments = () =>{
-    fetch('http://localhost:8000/api/v1/apartments/',{
+    fetch('https://househuntr-backend.herokuapp.com/api/v1/apartments/',{
       credentials: 'include',
       'Access-Control-Allow-Credentials':true
     })
@@ -38,8 +40,116 @@ class App extends Component{
     })
   }
 
+  register = async (e) =>{
+    e.preventDefault()
+    try{
+      const res = await fetch('https://househuntr-backend.herokuapp.com/api/v1/user/register', {
+        method: 'POST',
+        body: JSON.stringify({
+          username: this.state.username,
+          password: this.state.password,
+          email: this.state.email
+        }),
+        headers: {
+          'Content-Type':'application/json'
+        }
+      })
+      console.log(res)
+      const response = await res.json()
+      console.log(response.data)
+      if(res.status === 201){
+        // console.log('register works')
+        this.setState({
+          username:'',
+          password: '',
+          email:''
+        })
+      }
+    }
+    catch(err){
+      console.log('Error =>', err)
+    }
+  }
+
+  login = async (e) => {
+    e.preventDefault()
+    try{
+      const res = await fetch('https://househuntr-backend.herokuapp.com/api/v1/user/login',{
+        method:'POST',
+        body: JSON.stringify({
+          password:this.state.password,
+          email: this.state.email
+        }),
+        headers:{
+          'Content-Type':'application/json'
+        },
+        credentials: 'include'
+      })
+      //console.log(res)
+      const response = await res.json()
+      // console.log(response.data)
+      // console.log('Body =>', res.body)
+      if(res.status === 200){
+        this.setState({
+          loggedIn:true,
+          user:response.data
+        })
+      }
+    }
+    catch(err){
+      console.log('Error =>', err)
+    }
+  }
+
+  editApartment= (apartment) =>{
+    // e.preventDefault()
+    fetch('https://househuntr-backend.herokuapp.com/api/v1/apartments/'+ apartment.id , {
+        method: 'PUT',
+        body: JSON.stringify(apartment),
+        headers:{
+          'Content-Type':'application/json'
+        },
+        credentials:'include'
+    })
+    .then(res =>{
+        console.log(res)
+        if(res.status === 200){
+            return res.json()
+        } else{
+            return []
+        }
+    })
+    .then(data =>{
+        console.log(data.data)
+        const copyApt = [...this.state.apartments]
+        const idx = this.state.apartments.findIndex((apt) => apt.id === data.data.id)
+        copyApt[idx] = data.data
+        this.setState({
+          apartments:copyApt
+        })
+    })
+  }
+
+  deleteOne = (id) =>{
+    fetch('https://househuntr-backend.herokuapp.com/api/v1/apartments/' + id , {
+        method:'DELETE',
+        credentials: 'include'
+    })
+    .then(res =>{
+        console.log(res)
+        const copyApt = [...this.state.apartments]
+        const idx = this.state.apartments.findIndex((apt) => apt.id === id)
+        copyApt.splice(idx,1)
+        this.setState({
+            apartments: copyApt
+        })
+    })
+}
+
+  // ----------------- HELPER FUNCTIONS --------------- //
   componentDidMount(){
-    //console.log('Component did mount')
+    console.log('Component did mount')
+    console.log(process.env.REACT_APP_BACKEND_APARTMENTS)
     this.getApartments()
   }
 
@@ -74,99 +184,6 @@ class App extends Component{
     })
   }
 
-  register = async (e) =>{
-    e.preventDefault()
-    const url = 'http://localhost:8000/api/v1/user/register'
-    try{
-      const res = await fetch(url, {
-        method: 'POST',
-        body: JSON.stringify({
-          username: this.state.username,
-          password: this.state.password,
-          email: this.state.email
-        }),
-        headers: {
-          'Content-Type':'application/json'
-        }
-      })
-      console.log(res)
-      const response = await res.json()
-      console.log(response.data)
-      if(res.status === 201){
-        // console.log('register works')
-        this.setState({
-          username:'',
-          password: '',
-          email:''
-        })
-      }
-    }
-    catch(err){
-      console.log('Error =>', err)
-    }
-  }
-
-  login = async (e) => {
-    e.preventDefault()
-    const url = 'http://localhost:8000/api/v1/user/login'
-    try{
-      const res = await fetch(url,{
-        method:'POST',
-        body: JSON.stringify({
-          password:this.state.password,
-          email: this.state.email
-        }),
-        headers:{
-          'Content-Type':'application/json'
-        },
-        credentials: 'include'
-      })
-      //console.log(res)
-      const response = await res.json()
-      // console.log(response.data)
-      // console.log('Body =>', res.body)
-      if(res.status === 200){
-        this.setState({
-          loggedIn:true,
-          user:response.data
-        })
-      }
-    }
-    catch(err){
-      console.log('Error =>', err)
-    }
-  }
-
-  editApartment= (apartment) =>{
-    // e.preventDefault()
-    let url = 'http://localhost:8000/api/v1/apartments/' + apartment.id
-    fetch(url , {
-        method: 'PUT',
-        body: JSON.stringify(apartment),
-        headers:{
-          'Content-Type':'application/json'
-        },
-        credentials:'include'
-    })
-    .then(res =>{
-        console.log(res)
-        if(res.status === 200){
-            return res.json()
-        } else{
-            return []
-        }
-    })
-    .then(data =>{
-        console.log(data.data)
-        const copyApt = [...this.state.apartments]
-        const idx = this.state.apartments.findIndex((apt) => apt.id === data.data.id)
-        copyApt[idx] = data.data
-        this.setState({
-          apartments:copyApt
-        })
-    })
-  }
-
   render(){
     return(
       <div className="dashboard">
@@ -174,10 +191,10 @@ class App extends Component{
       <Login login={this.login} handleChange={this.handleChange}/>
       <Register register={this.register} handleChange={this.handleChange}/>
       <div className='list'>
-        <Wishlist apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment}/>
-        <Scheduled apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment}/>
-        <Seen apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment}/>
-        <Applied apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment}/>
+        <Wishlist apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
+        <Scheduled apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
+        <Seen apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
+        <Applied apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
       </div> 
       <NewApartment handleAddApartment={this.handleAddApartment}/>
       <Footer />

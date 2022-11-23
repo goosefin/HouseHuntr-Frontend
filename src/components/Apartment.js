@@ -26,23 +26,23 @@ class Apartment extends Component{
         }
     }
 
-    deleteOne = (id) =>{
-        let url = 'http://localhost:8000/api/v1/apartments/' + id
-        fetch(url, {
-            method:'DELETE',
-            credentials: 'include'
-        })
-        .then(res =>{
-            console.log(res)
-            const copyApt = [...this.props.apartment]
-            const idx = this.props.plants.findIndex((apt) => apt.id === id)
-            copyApt.splice(idx,1)
-            this.props.handleDeletedState(this.state.id)
-            this.setState({
-                apartments: copyApt
-            })
-        })
-    }
+    // deleteOne = (id) =>{
+    //     let url = 'http://localhost:8000/api/v1/apartments/' + id
+    //     fetch(url, {
+    //         method:'DELETE',
+    //         credentials: 'include'
+    //     })
+    //     .then(res =>{
+    //         console.log(res)
+    //         const copyApt = [...this.props.apartment]
+    //         const idx = this.props.plants.findIndex((apt) => apt.id === id)
+    //         copyApt.splice(idx,1)
+    //         this.props.handleDeletedState(this.state.id)
+    //         this.setState({
+    //             apartments: copyApt
+    //         })
+    //     })
+    // }
 
     toggleForm = () =>{
         if(this.state.openForm){
@@ -69,7 +69,7 @@ class Apartment extends Component{
 
         return(
             <div>
-            <h3>{this.state.address} <span onClick={() =>this.deleteOne(this.state.id)}>X</span> <span onClick={this.toggleForm}>Edit</span></h3>
+            <h3>{this.state.address} <span onClick={() =>this.props.deleteOne(this.state.id)}>X</span> <span onClick={this.toggleForm}>Edit</span></h3>
                 <ul>
                     <li>Bedrooms:{this.state.bedrooms}</li>
                     <li>Price:${this.state.price}</li>
