@@ -17,11 +17,11 @@ class App extends Component{
       user: [],
       apartments: [],
       loggedIn:false,
+      newApartmentForm:false
     }
   }
 
   // ----------------- ROUTES --------------- //
-
   getApartments = () =>{
     fetch('https://househuntr-backend.herokuapp.com/api/v1/apartments/',{
       credentials: 'include',
@@ -90,6 +90,7 @@ class App extends Component{
       // console.log(response.data)
       // console.log('Body =>', res.body)
       if(res.status === 200){
+        this.getApartments()
         this.setState({
           loggedIn:true,
           user:response.data
@@ -102,7 +103,6 @@ class App extends Component{
   }
 
   editApartment= (apartment) =>{
-    // e.preventDefault()
     fetch('https://househuntr-backend.herokuapp.com/api/v1/apartments/'+ apartment.id , {
         method: 'PUT',
         body: JSON.stringify(apartment),
@@ -147,32 +147,9 @@ class App extends Component{
 }
 
   // ----------------- HELPER FUNCTIONS --------------- //
-  componentDidMount(){
-    console.log('Component did mount')
-    console.log(process.env.REACT_APP_BACKEND_APARTMENTS)
-    this.getApartments()
-  }
-
   handleChange = (e) =>{
     this.setState({
       [e.target.id]:e.target.value
-    })
-  }
-
-  updateState = (apartment) =>{
-    const copyApartments = [...this.state.apartments]
-    copyApartments.push(apartment)
-    this.setState({
-      apartments:copyApartments
-    })
-  }
-
-  updateDeletedState = (id) =>{
-    const copyApartments = [this.state.apartments]
-    const findIdx = this.state.apartments.findIndex((apt) => apt.id === id)
-    copyApartments.splice(findIdx,1)
-    this.setState({
-      apartments:copyApartments
     })
   }
 
@@ -187,7 +164,7 @@ class App extends Component{
   render(){
     return(
       <div className="dashboard">
-      <NavBar />
+      <NavBar handleAddApartment={this.handleAddApartment}/>
       <Login login={this.login} handleChange={this.handleChange}/>
       <Register register={this.register} handleChange={this.handleChange}/>
       <div className='list'>
@@ -196,7 +173,6 @@ class App extends Component{
         <Seen apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
         <Applied apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
       </div> 
-      <NewApartment handleAddApartment={this.handleAddApartment}/>
       <Footer />
     </div>
     )

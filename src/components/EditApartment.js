@@ -34,7 +34,35 @@ class EditApartment extends Component{
 
     submit = (e) =>{
         e.preventDefault()
-        const apartment = this.state
+        const apartment = {
+            address:this.state.address,
+            bedrooms:this.state.bedrooms,
+            price:this.state.price,
+            cats:this.state.cats,
+            dogs:this.state.dogs,
+            washer:this.state.washer,
+            dryer:this.state.dryer,
+            dishwasher:this.state.dishwasher,
+            outdoor_space:this.state.outdoor_space,
+            elevator:this.state.elevator,
+            doorman:this.state.doorman,
+            link:this.state.link,
+            scheduled_showing: this.state.scheduled_showing,
+            scheduled_showing_time:this.state.scheduled_showing_time,
+            seen:this.state.seen,
+            applied:this.state.applied,
+            id:this.state.id
+        }
+        for(const key in apartment){
+            //console.log(apartmentData[key])
+            if(apartment[key] === undefined){
+              apartment[key] = false
+            }else if(apartment[key] === 'on'){
+              apartment[key] = true
+            }else{
+              apartment[key] = apartment[key]
+            }
+          }
         this.props.editApartment(apartment)
         this.props.toggleForm()
     }
@@ -91,7 +119,7 @@ class EditApartment extends Component{
                     <input type="checkbox" id="seen" name="seen" onChange={this.handleChange} checked={this.state.seen}/>
                     <label htmlFor="applied">Applied:</label>
                     <input type="checkbox" id="applied" name="applied" onChange={this.handleChange} checked={this.state.applied}/>
-                    <input type="submit" value="Add new apartment"/>
+                    <input type="submit" value="Save Changes"/>
                 </form>
             </div>
         )

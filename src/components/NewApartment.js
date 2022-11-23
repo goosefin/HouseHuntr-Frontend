@@ -56,8 +56,7 @@ class NewApartment extends Component{
           }
         }
         // console.log('Looped Object', apartmentData)
-        let url = 'http://localhost:8000/api/v1/apartments/'
-        fetch(url , {
+        fetch('https://househuntr-backend.herokuapp.com/api/v1/apartments/', {
             method: 'POST',
             body: JSON.stringify(apartmentData),
             headers:{
@@ -76,6 +75,7 @@ class NewApartment extends Component{
         .then(data =>{
             // console.log(data.data)
             this.props.handleAddApartment(data.data)
+            this.props.formDisplay()
             this.setState({
                 address: '',
                 bedrooms: 0,
