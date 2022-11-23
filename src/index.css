@@ -52,15 +52,33 @@ i{
   justify-content: space-evenly;
 }
 
-#footer-logo{
-  max-width: 7em;
-  align-self:auto;
-  border-radius: 5em;
-}
-
 #new_apt_form{
   display: flex;
   flex-wrap: wrap;
   max-width: 25%;
   flex-direction: column;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  background-color: #404040;
+  height: 10em;
+  align-items: center;
+  margin-top: 3em;
+}
+
+#footer-logo{
+  max-height: 7em;
+  align-self:auto;
+  border-radius: 5em;
+}
+
+.footer-links{
+  margin-right: 2em;
+  color:#f6bf4f;
+}
+
+a{
+  text-decoration: none !important;
 }

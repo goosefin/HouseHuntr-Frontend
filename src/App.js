@@ -165,8 +165,8 @@ class App extends Component{
     return(
       <div className="dashboard">
       <NavBar handleAddApartment={this.handleAddApartment}/>
-      <Login login={this.login} handleChange={this.handleChange}/>
-      <Register register={this.register} handleChange={this.handleChange}/>
+      {/* <Login login={this.login} handleChange={this.handleChange}/> */}
+      {/* <Register register={this.register} handleChange={this.handleChange}/> */}
       <div className='list'>
         <Wishlist apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
         <Scheduled apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
