@@ -41,12 +41,15 @@ i{
 
 #wishlist, #scheduled, #seen, #applied{
   border:1.5px solid black;
-  max-width: 35%;
+  width: 35%;
 }
 
 .list{
   display:flex;
   justify-content: space-evenly;
+  width: 60em;
+  margin-right:2em;
+  margin-top: 5em;
 }
 
 #new_apt_form{
@@ -124,4 +127,13 @@ a{
   display:flex;
   flex-direction: column;
   align-items: center;
+}
+
+.nav{
+  max-width: 10em;
+}
+
+#dash-ctrl{
+  display: flex;
+  justify-content: space-between;
 }

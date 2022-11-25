@@ -16,15 +16,17 @@ class Dashboard extends Component{
     render(){
         return(
             <>
-            <NavBar handleAddApartment={this.props.handleAddApartment}/>
-                <div className='list'>
-                    <Wishlist apartments={this.props.apartments} editApartment={this.props.editApartment} deleteOne={this.props.deleteOne}/>
-                    <Scheduled apartments={this.props.apartments} editApartment={this.props.editApartment} deleteOne={this.props.deleteOne}/>
-                    <Seen apartments={this.props.apartments} editApartment={this.props.editApartment} deleteOne={this.props.deleteOne}/>
-                    <Applied apartments={this.props.apartments} editApartment={this.props.editApartment} deleteOne={this.props.deleteOne}/>
+                <div id="dash-ctrl">
+                <NavBar handleAddApartment={this.props.handleAddApartment}/>
+                    <div className='list'>
+                        <Wishlist apartments={this.props.apartments} editApartment={this.props.editApartment} deleteOne={this.props.deleteOne}/>
+                        <Scheduled apartments={this.props.apartments} editApartment={this.props.editApartment} deleteOne={this.props.deleteOne}/>
+                        <Seen apartments={this.props.apartments} editApartment={this.props.editApartment} deleteOne={this.props.deleteOne}/>
+                        <Applied apartments={this.props.apartments} editApartment={this.props.editApartment} deleteOne={this.props.deleteOne}/>
+                    </div> 
                 </div> 
-            <Footer />
-            </>   
+                <Footer/>
+            </>
         )
     }
 }
