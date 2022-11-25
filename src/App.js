@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 import Scheduled from './components/Scheduled';
 import Seen from './components/Seen'
 import Applied from './components/Applied';
-// import EditApartment from './components/EditApartment';
+import Landing from './components/Landing';
 
 class App extends Component{
   constructor(){
@@ -85,10 +85,10 @@ class App extends Component{
         },
         credentials: 'include'
       })
-      //console.log(res)
+      console.log(res)
       const response = await res.json()
-      // console.log(response.data)
-      // console.log('Body =>', res.body)
+      console.log(response.data)
+      console.log('Body =>', res.body)
       if(res.status === 200){
         this.getApartments()
         this.setState({
@@ -164,17 +164,18 @@ class App extends Component{
   render(){
     return(
       <div className="dashboard">
-      <NavBar handleAddApartment={this.handleAddApartment}/>
-      {/* <Login login={this.login} handleChange={this.handleChange}/> */}
-      {/* <Register register={this.register} handleChange={this.handleChange}/> */}
-      <div className='list'>
-        <Wishlist apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
-        <Scheduled apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
-        <Seen apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
-        <Applied apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
-      </div> 
-      <Footer />
-    </div>
+        <Landing handleChange={this.handleChange} register={this.register} login={this.login} users={this.state.user} loggedIn={this.state.loggedIn}/>
+        {/* <NavBar handleAddApartment={this.handleAddApartment}/>
+        <Login login={this.login} handleChange={this.handleChange}/> */}
+        {/* <Register register={this.register} handleChange={this.handleChange}/>
+          <div className='list'>
+            <Wishlist apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
+            <Scheduled apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
+            <Seen apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
+            <Applied apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
+          </div> 
+        <Footer /> */}
+      </div>
     )
   }
 

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Form,Button} from 'react-bootstrap'
 
 class Login extends Component{
     constructor(props){
@@ -12,12 +13,28 @@ class Login extends Component{
     render(){
         return(
             <div>
-                <form onSubmit={this.props.login}>
-                    <label htmlFor='email'>Email:</label>
-                    <input type='email' id='email' name='email' onChange={this.props.handleChange}/>
-                    <label htmlFor='password'>Password:</label>
-                    <input type='password' id='password' name='password' onChange={this.props.handleChange}/>
-                    <input type='submit' value='Login'/>
+                <form className="log-reg-forms" onSubmit={this.props.login}>
+                    <Form.Group className='mb-3'>
+                        <Form.Label htmlFor='email'>Email:</Form.Label>
+                        <Form.Control 
+                            type='email' 
+                            id='email' 
+                            name='email' 
+                            onChange={this.props.handleChange} 
+                        />
+                    </Form.Group>
+
+                    <Form.Group className='mb-3'>
+                        <Form.Label htmlFor='password'>Password:</Form.Label>
+                        <Form.Control 
+                            type='password' 
+                            id='password' 
+                            name='password' 
+                            onChange={this.props.handleChange} 
+                        />
+                    </Form.Group>
+
+                    <Button variant='outline-secondary' size="md" type="submit">Log In</Button>
                 </form>
             </div>
         )
