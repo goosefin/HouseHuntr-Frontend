@@ -1,14 +1,7 @@
 import React, {Component} from 'react'
-import NavBar from './components/NavBar';
-import Wishlist from './components/Wishlist';
-import Login from './components/Login'
-import Register from './components/Register';
-import NewApartment from './components/NewApartment';
-import Footer from './components/Footer'
-import Scheduled from './components/Scheduled';
-import Seen from './components/Seen'
-import Applied from './components/Applied';
 import Landing from './components/Landing';
+import Dashboard from './components/Dashboard';
+import { toHaveStyle } from '@testing-library/jest-dom/dist/matchers';
 
 class App extends Component{
   constructor(){
@@ -162,19 +155,15 @@ class App extends Component{
   }
 
   render(){
+    let content
+    if(!this.state.loggedIn){
+      content = <Landing handleChange={this.handleChange} register={this.register} login={this.login} users={this.state.user} loggedIn={this.state.loggedIn}/>
+    }else{
+      content = <Dashboard handleChange={this.handleChange} users={this.state.user} loggedIn={this.state.loggedIn} apartments={this.state.apartments} handleAddApartment={this.handleAddApartment} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
+    }
     return(
       <div className="dashboard">
-        <Landing handleChange={this.handleChange} register={this.register} login={this.login} users={this.state.user} loggedIn={this.state.loggedIn}/>
-        {/* <NavBar handleAddApartment={this.handleAddApartment}/>
-        <Login login={this.login} handleChange={this.handleChange}/> */}
-        {/* <Register register={this.register} handleChange={this.handleChange}/>
-          <div className='list'>
-            <Wishlist apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
-            <Scheduled apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
-            <Seen apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
-            <Applied apartments={this.state.apartments} handleDeletedState={this.updateDeletedState} editApartment={this.editApartment} deleteOne={this.deleteOne}/>
-          </div> 
-        <Footer /> */}
+        {content}
       </div>
     )
   }
