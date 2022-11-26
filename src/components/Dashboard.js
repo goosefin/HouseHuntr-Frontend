@@ -15,7 +15,7 @@ class Dashboard extends Component{
 
     render(){
         return(
-            <>
+            <div className='font-dash'>
                 <div id="dash-ctrl">
                 <NavBar handleAddApartment={this.props.handleAddApartment}/>
                     <div className='list'>
@@ -26,7 +26,7 @@ class Dashboard extends Component{
                     </div> 
                 </div> 
                 <Footer/>
-            </>
+            </div>
         )
     }
 }

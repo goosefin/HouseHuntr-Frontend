@@ -55,7 +55,6 @@ i{
 #new_apt_form{
   display: flex;
   flex-wrap: wrap;
-  max-width: 25%;
   flex-direction: column;
 }
 
@@ -66,6 +65,7 @@ i{
   height: 10em;
   align-items: center;
   margin-top: 3em;
+  font-family: 'Fira Sans', sans-serif;
 }
 
 #footer-logo{
@@ -130,10 +130,17 @@ a{
 }
 
 .nav{
-  max-width: 10em;
+  max-width: 15em;
+  margin-left:2em;
+  margin-top: 2em;
 }
 
 #dash-ctrl{
   display: flex;
   justify-content: space-between;
 }
+
+.font-dash{
+  font-family: 'Fira Sans', sans-serif;
+}
+
