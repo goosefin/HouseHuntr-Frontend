@@ -48,21 +48,21 @@ class Apartment extends Component{
         }else{
             content = <>
                     <ul>
-                        <li>Bedrooms:{this.state.bedrooms}</li>
-                        <li>Price:${this.state.price}</li>
-                        <li>Cats:{String(this.state.cats)}</li>
-                        <li>Dogs:{String(this.state.dogs)}</li>
-                        <li>Washer:{String(this.state.washer)}</li>
-                        <li>Dryer:{String(this.state.dryer)}</li>
-                        <li>Dishwasher:{String(this.state.dishwasher)}</li>
-                        <li>Outdoor Space:{String(this.state.outdoor_space)}</li>
-                        <li>Elevator:{String(this.state.elevator)}</li>
-                        <li>Doorman:{String(this.state.doorman)}</li>
-                        <li>Link:{this.state.link}</li>
-                        <li>Scheduled Showing:{String(this.state.scheduled_showing)}</li>
-                        <li>Scheduled Showing Time:{this.state.scheduled_showing_time}</li>
-                        <li>Seen:{String(this.state.seen)}</li>
-                        <li>Applied:{String(this.state.applied)}</li>
+                        <li>Bedrooms: {this.state.bedrooms}</li>
+                        <li>Price: ${this.state.price}</li>
+                        <li>Cats: {String(this.state.cats)}</li>
+                        <li>Dogs: {String(this.state.dogs)}</li>
+                        <li>Washer: {String(this.state.washer)}</li>
+                        <li>Dryer: {String(this.state.dryer)}</li>
+                        <li>Dishwasher: {String(this.state.dishwasher)}</li>
+                        <li>Outdoor Space: {String(this.state.outdoor_space)}</li>
+                        <li>Elevator: {String(this.state.elevator)}</li>
+                        <li>Doorman: {String(this.state.doorman)}</li>
+                        <li>Link: {this.state.link}</li>
+                        <li>Scheduled Showing: {String(this.state.scheduled_showing)}</li>
+                        <li>Scheduled Showing Time: {this.state.scheduled_showing_time}</li>
+                        <li>Seen: {String(this.state.seen)}</li>
+                        <li>Applied: {String(this.state.applied)}</li>
                     </ul>
                 </>
         }

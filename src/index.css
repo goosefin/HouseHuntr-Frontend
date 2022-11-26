@@ -160,3 +160,10 @@ a{
 #address-header{
   text-align: center;
 }
+
+#edit-btn{
+  width:15em;
+  margin-left:.5em;
+  margin-bottom: 2em;
+  margin-top: 2em;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Form, Button, FloatingLabel} from 'react-bootstrap'
 
 class EditApartment extends Component{
     constructor(props){
@@ -25,8 +26,6 @@ class EditApartment extends Component{
     }
 
     handleChange = (e) =>{
-        console.log(e.target.id)
-        console.log(e.target.value)
         this.setState({
             [e.target.id]:e.target.value
         })
@@ -63,63 +62,201 @@ class EditApartment extends Component{
               apartment[key] = apartment[key]
             }
           }
+
+        if(e.target.checked){
+            console.log('inside if', e.target.checked)
+            this.setState({
+                [e.target.id]:true
+            })
+        }else{
+            console.log('inside else', e.target.checked)
+            this.setState({
+                [e.target.checked]:false
+            })
+        }
         this.props.editApartment(apartment)
         this.props.toggleForm()
     }
 
     toggleCheck = (e) =>{
         // console.log(e)
-        if(e.target.value === 'on'){
-            console.log('inside if', e.target.checked)
-            this.setState({
-                [e.target.checked]:false
-            })
-        }else{
-            console.log('inside else', e.target.checked)
-            this.setState({
-                [e.target.checked]:true
-            })
-        }
+        
     }
 
     render(){
         return(
-            <div>
-                <h2>Edit Apartment</h2>
+            <div className='edit-form'>
                 <form onSubmit={this.submit}>
-                    <label htmlFor="address">Address:</label>
-                    <input type="text" id="address" name="address" onChange={this.handleChange} value={this.state.address}/>
-                    <label htmlFor="bedrooms">Bedrooms:</label>
-                    <input type="number" id="bedrooms" name="bedrooms" onChange={this.handleChange} value={this.state.bedrooms}/>
-                    <label htmlFor="price">Price:</label>
-                    <input type="number" id="price" name="price" onChange={this.handleChange} value={this.state.price}/>
-                    <label htmlFor="cats">Cats:</label>
-                    <input type="checkbox" id="cats" name="cats" onChange={this.handleChange} checked={this.state.cats} onClick={this.toggleCheck}/>
-                    <label htmlFor="dogs">Dogs:</label>
-                    <input type="checkbox" id="dogs" name="dogs" onChange={this.handleChange} checked={this.state.dogs}/>
-                    <label htmlFor="washer">Washer:</label>
-                    <input type="checkbox" id="washer" name="washer" onChange={this.handleChange} checked={this.state.washer}/>
-                    <label htmlFor="dryer">Dryer:</label>
-                    <input type="checkbox" id="dryer" name="dryer" onChange={this.handleChange} checked={this.state.dryer}/>
-                    <label htmlFor="dishwasher">Dishwasher:</label>
-                    <input type="checkbox" id="dishwasher" name="dishwasher" onChange={this.handleChange} checked={this.state.dishwasher}/>
-                    <label htmlFor="outdoor_space">Outdoor Space:</label>
-                    <input type="checkbox" id="outdoor_space" name="outdoor_space" onChange={this.handleChange} checked={this.state.outdoor_space}/>
-                    <label htmlFor="elevator">Elevator:</label>
-                    <input type="checkbox" id="elevator" name="elevator" onChange={this.handleChange} checked={this.state.elevator}/>
-                    <label htmlFor="doorman">Doorman:</label>
-                    <input type="checkbox" id="doorman" name="doorman" onChange={this.handleChange} checked={this.state.dogs}/>
-                    <label htmlFor="link">Link:</label>
-                    <input type="text" id="link" name="link" onChange={this.handleChange} value={this.state.link}/>
-                    <label htmlFor="scheduled_showing">Scheduled Showing:</label>
-                    <input type="checkbox" id="scheduled_showing" name="scheduled_showing" onChange={this.handleChange} checked={this.state.scheduled_showing}/>
-                    <label htmlFor="scheduled_showing_time">Scheduled Showing Time:</label>
-                    <input type="text" id="scheduled_showing_time" name="scheduled_showing_time" onChange={this.handleChange} value={this.state.scheduled_showing_time}/>
-                    <label htmlFor="seen">Seen:</label>
-                    <input type="checkbox" id="seen" name="seen" onChange={this.handleChange} checked={this.state.seen}/>
-                    <label htmlFor="applied">Applied:</label>
-                    <input type="checkbox" id="applied" name="applied" onChange={this.handleChange} checked={this.state.applied}/>
-                    <input type="submit" value="Save Changes"/>
+                    <FloatingLabel
+                        label="Address"
+                        className="mb-3"
+                    >
+                        <Form.Control 
+                        type="text" 
+                        placeholder={this.state.address}
+                        value={this.state.address}
+                        id="address"
+                        name="address"
+                        onChange={this.handleChange}
+                        />
+                    </FloatingLabel>
+                    
+                    <FloatingLabel
+                        label="Bedrooms"
+                        className="mb-3"
+                    >
+                        <Form.Control 
+                        type="number" 
+                        placeholder={this.state.bedrooms}
+                        value={this.state.bedrooms}
+                        id="bedrooms"
+                        name="bedrooms"
+                        onChange={this.handleChange}
+                        />
+                    </FloatingLabel>
+
+                    <FloatingLabel
+                        label="Price"
+                        className="mb-3"
+                    >
+                        <Form.Control 
+                        type="number" 
+                        placeholder={this.state.price}
+                        value={this.state.price}
+                        id="price"
+                        name="price"
+                        onChange={this.handleChange}
+                        />
+                    </FloatingLabel>
+
+                    <Form.Check 
+                        type="switch"
+                        id="cats"
+                        name="cats"
+                        label="Cats"
+                        onChange={this.handleChange}
+                        defaultChecked={this.state.cats} 
+                    />
+
+                    <Form.Check 
+                        type="switch"
+                        id="dogs"
+                        name="dogs"
+                        label="Dogs"
+                        onChange={this.handleChange}
+                        defaultChecked={this.state.dogs}
+                    />
+
+                    <Form.Check 
+                        type="switch"
+                        id="washer"
+                        name="washer"
+                        label="Washer"
+                        onChange={this.handleChange}
+                        defaultChecked={this.state.washer}
+                    />
+
+                    <Form.Check 
+                        type="switch"
+                        id="dryer"
+                        name="dryer"
+                        label="Dryer"
+                        onChange={this.handleChange}
+                        defaultChecked={this.state.dryer}
+                    />
+                    
+                    <Form.Check 
+                        type="switch"
+                        id="dishwasher"
+                        name="dishwasher"
+                        label="Dishwasher"
+                        onChange={this.handleChange}
+                        defaultChecked={this.state.dishwasher}
+                    />
+
+                    <Form.Check 
+                        type="switch"
+                        id="outdoor_space"
+                        name="outdoor_space"
+                        label="Outdoor Space"
+                        onChange={this.handleChange}
+                        defaultChecked={this.state.outdoor_space}
+                    />
+
+                    <Form.Check 
+                        type="switch"
+                        id="elevator"
+                        name="elevator"
+                        label="Elevator"
+                        onChange={this.handleChange}
+                        defaultChecked={this.state.elevator}
+                    />
+
+                    <Form.Check 
+                        type="switch"
+                        id="doorman"
+                        name="doorman"
+                        label="Doorman"
+                        onChange={this.handleChange}
+                        defaultChecked={this.state.doorman}
+                    />
+
+                    <FloatingLabel
+                        label="Link"
+                        className="mb-3"
+                    >
+                        <Form.Control 
+                        type="text" 
+                        placeholder="streeteasy.com"
+                        id="link"
+                        name="link"
+                        onChange={this.handleChange}
+                        value={this.state.link}
+                        />
+                    </FloatingLabel>
+
+                    <Form.Check 
+                        type="switch"
+                        id="scheduled_showing"
+                        name="scheduled_showing"
+                        label="Scheduled Showing"
+                        onChange={this.handleChange}
+                        defaultChecked={this.state.scheduled_showing}
+                    />
+
+                    <FloatingLabel
+                        label="Scheduled Showing Time"
+                        className="mb-3"
+                    >
+                        <Form.Control 
+                        type="text" 
+                        placeholder="Monday, 27th"
+                        id="scheduled_showing_time"
+                        name="scheduled_showing_time"
+                        onChange={this.handleChange}
+                        value={this.state.scheduled_showing_time}
+                        />
+                    </FloatingLabel>
+                    
+                    <Form.Check 
+                        type="switch"
+                        id="seen_e"
+                        name="seen"
+                        label="Seen"
+                        onChange={this.handleChange}
+                        defaultChecked={this.state.seen}
+                    />
+                    
+                    <Form.Check 
+                        type="switch"
+                        id="applied_e"
+                        name="applied"
+                        label="Applied"
+                        onChange={this.handleChange}
+                        defaultChecked={this.state.applied}
+                    />
+                    
+                    <Button variant='outline-secondary' size="md" type="submit" id="edit-btn">Edit Apartment</Button>
                 </form>
             </div>
         )
