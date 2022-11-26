@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import NavBar from './NavBar'
 import Wishlist from './Wishlist';
-import Login from './Login'
-import Register from './Register';
 import Footer from './Footer'
 import Scheduled from './Scheduled';
 import Seen from './Seen'

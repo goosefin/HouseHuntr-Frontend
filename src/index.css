@@ -25,6 +25,7 @@ code {
   max-width: 7em;
   align-self:auto;
   border-radius: 5em;
+  margin-bottom: 2em;
 }
 
 i{
@@ -41,13 +42,14 @@ i{
 
 #wishlist, #scheduled, #seen, #applied{
   border:1.5px solid black;
-  width: 35%;
+  width: 25%;
+  margin-left:1em;
 }
 
 .list{
   display:flex;
   justify-content: space-evenly;
-  width: 60em;
+  width: 70em;
   margin-right:2em;
   margin-top: 5em;
 }
@@ -144,3 +146,17 @@ a{
   font-family: 'Fira Sans', sans-serif;
 }
 
+#nav-listing{
+  margin-bottom: 2em;
+}
+
+#edit-delete{
+  display: flex;
+  justify-content: space-between;
+  padding-right:.5em;
+  padding-left:.5em;
+}
+
+#address-header{
+  text-align: center;
+}

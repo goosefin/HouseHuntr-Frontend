@@ -33,7 +33,7 @@ class NavBar extends Component{
         return(
             <div className="nav">
                 <img src="./fullLogo.png" id="navLogo"/>
-                    <div id="nav-litings">
+                    <div id="nav-listing">
                         <h3>Listings</h3>
                         <Button onClick={this.formDisplay} variant="outline-secondary"><i class="bi bi-house-door" style={{fontSize:20}}></i>Add New Listing</Button>
                         {content}
