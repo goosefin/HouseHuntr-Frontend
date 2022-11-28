@@ -113,11 +113,12 @@ class App extends Component{
         }
     })
     .then(data =>{
-        console.log(data.data)
+        console.log('incoming data', data.data)
         const copyApt = [...this.state.apartments]
-        const idx = this.state.apartments.findIndex((apt) => apt.id === data.data.id)
-        console.log(copyApt[idx])
+        const idx = this.state.apartments.findIndex(apt => apt.id === data.data.id)
+        console.log('before assignment', copyApt[idx])
         copyApt[idx] = data.data
+        console.log('after assignment', copyApt[idx])
         this.setState({
           apartments:copyApt
         })

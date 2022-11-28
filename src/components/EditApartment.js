@@ -49,27 +49,28 @@ class EditApartment extends Component{
 
     submit = (e) =>{
         e.preventDefault()
-        const apartment = {
-            address:this.state.address,
-            bedrooms:this.state.bedrooms,
-            price:this.state.price,
-            cats:this.state.cats,
-            dogs:this.state.dogs,
-            washer:this.state.washer,
-            dryer:this.state.dryer,
-            dishwasher:this.state.dishwasher,
-            outdoor_space:this.state.outdoor_space,
-            elevator:this.state.elevator,
-            doorman:this.state.doorman,
-            link:this.state.link,
-            scheduled_showing: this.state.scheduled_showing,
-            scheduled_showing_time:this.state.scheduled_showing_time,
-            seen:this.state.seen,
-            applied:this.state.applied,
-            id:this.state.id
-        }
+        const apartment = this.state
         this.props.editApartment(apartment)
         this.props.toggleForm()
+        this.setState({
+            address:this.props.address,
+            bedrooms:this.props.bedrooms,
+            price:this.props.price,
+            cats:this.props.cats,
+            dogs:this.props.dogs,
+            washer:this.props.washer,
+            dryer:this.props.dryer,
+            dishwasher:this.props.dishwasher,
+            outdoor_space:this.props.outdoor_space,
+            elevator:this.props.elevator,
+            doorman:this.props.doorman,
+            link:this.props.link,
+            scheduled_showing: this.props.scheduled_showing,
+            scheduled_showing_time:this.props.scheduled_showing_time,
+            seen:this.props.seen,
+            applied:this.props.applied,
+            id:this.props.id
+        })
     }
 
     render(){
