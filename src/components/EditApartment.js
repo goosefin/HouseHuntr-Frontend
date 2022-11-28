@@ -26,9 +26,25 @@ class EditApartment extends Component{
     }
 
     handleChange = (e) =>{
-        this.setState({
-            [e.target.id]:e.target.value
-        })
+        console.log(e.target.checked)
+        console.log(e.target.type)
+        console.log(e.target.id)
+        if(e.target.checked && e.target.type === 'checkbox'){
+            console.log('inside first conditional')
+            this.setState({
+                [e.target.id]:true
+            })
+        }else if(!e.target.checked && e.target.type === 'checkbox'){
+            console.log('inside second conditional')
+            this.setState({
+                [e.target.id]:false
+            })
+        }else if(e.target.type === 'text' || e.target.type === 'number'){
+            console.log('inside third conditional')
+            this.setState({
+                [e.target.id]:e.target.value
+            })
+        }
     }
 
     submit = (e) =>{
@@ -52,35 +68,8 @@ class EditApartment extends Component{
             applied:this.state.applied,
             id:this.state.id
         }
-        for(const key in apartment){
-            //console.log(apartmentData[key])
-            if(apartment[key] === undefined){
-              apartment[key] = false
-            }else if(apartment[key] === 'on'){
-              apartment[key] = true
-            }else{
-              apartment[key] = apartment[key]
-            }
-          }
-
-        if(e.target.checked){
-            console.log('inside if', e.target.checked)
-            this.setState({
-                [e.target.id]:true
-            })
-        }else{
-            console.log('inside else', e.target.checked)
-            this.setState({
-                [e.target.checked]:false
-            })
-        }
         this.props.editApartment(apartment)
         this.props.toggleForm()
-    }
-
-    toggleCheck = (e) =>{
-        // console.log(e)
-        
     }
 
     render(){

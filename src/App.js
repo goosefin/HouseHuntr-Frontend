@@ -116,6 +116,7 @@ class App extends Component{
         console.log(data.data)
         const copyApt = [...this.state.apartments]
         const idx = this.state.apartments.findIndex((apt) => apt.id === data.data.id)
+        console.log(copyApt[idx])
         copyApt[idx] = data.data
         this.setState({
           apartments:copyApt
