@@ -45,7 +45,7 @@ class NewApartment extends Component{
           seen:this.state.seen,
           applied:this.state.applied
         }
-        // console.log('Apartment Data', apartmentData)
+        console.log('Apartment Data', apartmentData)
         for(const key in apartmentData){
           //console.log(apartmentData[key])
           if(apartmentData[key] === undefined){
@@ -56,7 +56,7 @@ class NewApartment extends Component{
             apartmentData[key] = apartmentData[key]
           }
         }
-        // console.log('Looped Object', apartmentData)
+        console.log('Looped Object', apartmentData)
         fetch('https://househuntr-backend.herokuapp.com/api/v1/apartments/', {
             method: 'POST',
             body: JSON.stringify(apartmentData),
@@ -74,7 +74,7 @@ class NewApartment extends Component{
             }
         })
         .then(data =>{
-            // console.log(data.data)
+            console.log(data.data)
             this.props.handleAddApartment(data.data)
             this.props.formDisplay()
             this.setState({
@@ -250,7 +250,7 @@ class NewApartment extends Component{
                     
                     <Form.Check 
                         type="switch"
-                        id="seen_n"
+                        id="seen"
                         name="seen"
                         label="Seen"
                         onChange={this.handleChange}
@@ -258,7 +258,7 @@ class NewApartment extends Component{
                     
                     <Form.Check 
                         type="switch"
-                        id="applied_n"
+                        id="applied"
                         name="applied"
                         label="Applied"
                         onChange={this.handleChange}

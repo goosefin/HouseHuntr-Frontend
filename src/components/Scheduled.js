@@ -11,7 +11,7 @@ class Scheduled extends Component{
 
     render(){
         return(
-            <div id="scheduled">
+            <div id="scheduled-l">
                 <h2 className="column-title">Scheduled</h2>
                 {
                     this.props.apartments.map((apartment) =>{

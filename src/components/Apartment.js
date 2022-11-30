@@ -58,7 +58,7 @@ class Apartment extends Component{
                         <li>Outdoor Space: {String(this.state.outdoor_space)}</li>
                         <li>Elevator: {String(this.state.elevator)}</li>
                         <li>Doorman: {String(this.state.doorman)}</li>
-                        <li>Link: {this.state.link}</li>
+                        <li>Link: <a href={this.state.link}>{this.state.link}</a></li>
                         <li>Scheduled Showing: {String(this.state.scheduled_showing)}</li>
                         <li>Scheduled Showing Time: {this.state.scheduled_showing_time}</li>
                         <li>Seen: {String(this.state.seen)}</li>

@@ -11,7 +11,7 @@ class Applied extends Component{
 
     render(){
         return(
-            <div id="applied">
+            <div id="applied-l">
                 <h2 className="column-title">Applied</h2>
                 {
                     this.props.apartments.map((apartment) =>{

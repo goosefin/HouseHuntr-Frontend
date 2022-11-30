@@ -11,7 +11,7 @@ class Seen extends Component{
 
     render(){
         return(
-            <div id="seen">
+            <div id="seen-l">
                 <h2 className="column-title">Seen</h2>
                 {
                     this.props.apartments.map((apartment) =>{

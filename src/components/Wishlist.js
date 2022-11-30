@@ -11,7 +11,7 @@ class Wishlist extends Component{
 
     render(){
         return(
-            <div id="wishlist">
+            <div id="wishlist-l">
                 <h2 className="column-title">Wishlist</h2>
                 {
                     this.props.apartments.map((apartment) =>{
