@@ -230,7 +230,7 @@ class EditApartment extends Component{
                     
                     <Form.Check 
                         type="switch"
-                        id="seen_e"
+                        id="seen"
                         name="seen"
                         label="Seen"
                         onChange={this.handleChange}
@@ -239,7 +239,7 @@ class EditApartment extends Component{
                     
                     <Form.Check 
                         type="switch"
-                        id="applied_e"
+                        id="applied"
                         name="applied"
                         label="Applied"
                         onChange={this.handleChange}
