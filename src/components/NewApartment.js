@@ -117,7 +117,6 @@ class NewApartment extends Component{
                     >
                         <Form.Control 
                         type="text" 
-                        placeholder="555 West Dr"
                         id="address"
                         name="address"
                         onChange={this.handleChange}
@@ -130,7 +129,6 @@ class NewApartment extends Component{
                     >
                         <Form.Control 
                         type="number" 
-                        placeholder="2"
                         id="bedrooms"
                         name="bedrooms"
                         onChange={this.handleChange}
@@ -143,7 +141,6 @@ class NewApartment extends Component{
                     >
                         <Form.Control 
                         type="number" 
-                        placeholder="2500"
                         id="price"
                         name="price"
                         onChange={this.handleChange}

@@ -113,7 +113,7 @@ class App extends Component{
         }
     })
     .then(data =>{
-        console.log('incoming data', data)
+        console.log('incoming data', data.data)
         const copyApt = [...this.state.apartments]
         const idx = this.state.apartments.findIndex(apt => apt.id === data.data.id)
         console.log('before assignment', copyApt[idx])
