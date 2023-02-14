@@ -16,7 +16,7 @@ class Landing extends Component{
             <div id="landing">
                 <div id="title-des">
                     <div id="title">
-                        <img src="./fullLogo.png" id="landing-logo"/>
+                        <img src="./fullLogo.png" id="landing-logo" alt="yellow circle with black house"/>
                         <h1>HouseHuntr</h1> 
                     </div>
 

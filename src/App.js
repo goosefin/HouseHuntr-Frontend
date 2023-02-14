@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import Landing from './components/Landing';
 import Dashboard from './components/Dashboard';
-import { toHaveStyle } from '@testing-library/jest-dom/dist/matchers';
 
 class App extends Component{
   constructor(){
