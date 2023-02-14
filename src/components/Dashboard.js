@@ -7,9 +7,9 @@ import Seen from './Seen'
 import Applied from './Applied';
 
 class Dashboard extends Component{
-    constructor(props){
-        super(props)
-    }
+    // constructor(props){
+    //     super(props)
+    // }
 
     render(){
         return(
