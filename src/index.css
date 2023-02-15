@@ -88,7 +88,7 @@ a{
 }
 
 #landing-logo{
-  max-height: 10em;
+  max-height: 4em;
   border: 2px solid black;
   border-radius: 50%;
 }
@@ -123,8 +123,13 @@ a{
 
 #title{
   display:flex;
-  height: 15em;
+  margin-top: .5em;
+  min-width: 98vw;
   align-items: center;
+}
+
+#landing-reg-log{
+ margin-left: auto;
 }
 
 #title-des{
