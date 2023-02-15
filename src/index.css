@@ -96,11 +96,21 @@ a{
 #landing{
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  flex-direction:column;
   font-family: 'Fira Sans', sans-serif;
 }
 
 #description{
   max-width: 20em;
+}
+
+#carousel{
+  max-width:30em;
+}
+
+#sample{
+  min-width:30em;
 }
 
 #log-reg{

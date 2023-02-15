@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Register from './Register'
 import Login from './Login'
-import {Form, Button, FloatingLabel} from 'react-bootstrap'
+import {Button, Carousel} from 'react-bootstrap'
 
 class Landing extends Component{
     constructor(props){
@@ -21,13 +21,23 @@ class Landing extends Component{
                     <Button id="landing-reg-log" variant="outline-secondary">Register/Log In</Button>
                 </div>
                 
-                {/* <div id="title-des">
-                    <div id="description">
+                <div id="carousel">
+                    <Carousel>
+                        <Carousel.Item>
+                            <img src="./square-xxl.png" alt="black square" id="sample"/>
+                        </Carousel.Item>
+
+                        <Carousel.Caption>
+                            <p>Sample text lorem ipsum Sample text lorem ipsum Sample text lorem ipsum Sample text lorem ipsum  </p>
+                        </Carousel.Caption>
+                    </Carousel>
+
+                    {/* <div id="description">
                         <h3>Organize your apartment search</h3>
                         <p>Moving is considered to be one of the top 3 most stressfull events in a persons life. HouseHuntr simplifies the search by optimizing the ability to track the apartment you like from any platform you use. Our platform was designed with simplicity in mind, just upload all of the information related to the listing and you use our dashboard to update as you progress through the application process</p>
                         <h6><b>Create an account now for free or log in to start!</b></h6>
-                    </div>
-                </div> */}
+                    </div> */}
+                </div>
 
                 {/* <div id="log-reg">
                     <h3>Register</h3>
