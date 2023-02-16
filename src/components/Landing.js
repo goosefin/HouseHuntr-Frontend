@@ -21,22 +21,36 @@ class Landing extends Component{
                     <Button id="landing-reg-log" variant="outline-secondary">Register/Log In</Button>
                 </div>
                 
-                <div id="carousel">
-                    <Carousel>
+                <div id="carousel-div">
+                    <Carousel >
                         <Carousel.Item>
                             <img src="./square-xxl.png" alt="black square" id="sample"/>
+                                <Carousel.Caption>
+                                <p>Sample text lorem ipsum Sample text lorem ipsum Sample text lorem ipsum Sample text lorem ipsum  </p>
+                                </Carousel.Caption>
                         </Carousel.Item>
 
-                        <Carousel.Caption>
-                            <p>Sample text lorem ipsum Sample text lorem ipsum Sample text lorem ipsum Sample text lorem ipsum  </p>
-                        </Carousel.Caption>
+                        <Carousel.Item>
+                            <img src="./square-xxl.png" alt="black square" id="sample"/>
+                                <Carousel.Caption>
+                                <p>Sample text lorem ipsum Sample text lorem ipsum Sample text lorem ipsum Sample text lorem ipsum  </p>
+                                </Carousel.Caption>
+                        </Carousel.Item>                       
                     </Carousel>
+                </div>
 
-                    {/* <div id="description">
-                        <h3>Organize your apartment search</h3>
-                        <p>Moving is considered to be one of the top 3 most stressfull events in a persons life. HouseHuntr simplifies the search by optimizing the ability to track the apartment you like from any platform you use. Our platform was designed with simplicity in mind, just upload all of the information related to the listing and you use our dashboard to update as you progress through the application process</p>
-                        <h6><b>Create an account now for free or log in to start!</b></h6>
-                    </div> */}
+                <div id="description">
+                    <div class="land-des">
+                        <p>Organize listings based on where you are in the application process</p>
+                    </div>
+
+                    <div class="land-des" id="land-des-two">
+                        <p>Created for renters, home buyers and even agents and brokers</p>
+                    </div>
+
+                    <div class="land-des">
+                        <p>See all of your saved listings in one centralized application</p>
+                    </div>
                 </div>
 
                 {/* <div id="log-reg">
