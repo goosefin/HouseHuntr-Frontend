@@ -41,14 +41,17 @@ class Landing extends Component{
 
                 <div id="description">
                     <div class="land-des">
+                        <i class="bi bi-sort-down" style={{fontSize:30}}></i>
                         <p>Organize listings based on where you are in the application process</p>
                     </div>
 
                     <div class="land-des" id="land-des-two">
+                        <i class="bi bi-key" style={{fontSize:30}}></i>
                         <p>Created for renters, home buyers and even agents and brokers</p>
                     </div>
 
                     <div class="land-des">
+                        <i class="bi bi-save2" style={{fontSize:30}}></i>
                         <p>See all of your saved listings in one centralized application</p>
                     </div>
                 </div>
