@@ -52,6 +52,9 @@ class App extends Component{
       if(res.status === 201){
         // console.log('register works')
         this.setState({
+        //this should actually log in and switch to a dashboard view
+        //loggedIn:true,
+        //user:response.data
           username:'',
           password: '',
           email:''

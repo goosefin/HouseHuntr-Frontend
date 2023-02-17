@@ -1,29 +1,28 @@
 import React, {Component} from 'react'
 import {Button, Modal, Form} from 'react-bootstrap'
-import Register from '../components/Register'
 
 class RegisterModal extends Component{
     constructor(props){
         super(props)
         this.state = {
-            isOpen:false,
+            open:false,
             username:'',
             password:'',
             email:''
         }
     }
 
-    openModal = () => this.setState({isOpen:true})
+    openModal = () => this.setState({open:true})
 
-    closeModal = () => this.setState({isOpen:false})
+    closeModal = () => this.setState({open:false})
 
     render(){
         return(
             <div id="landing-reg-log">
-                <Button variant="outline-secondary" onClick={this.openModal}>
+                <Button variant="secondary" onClick={this.openModal}>
                 Register</Button>
 
-                <Modal show={this.state.isOpen} onHide={this.closeModal}>
+                <Modal show={this.state.open} onHide={this.closeModal}>
                     <Modal.Header closeButton>
                     <Modal.Title>Create Account</Modal.Title>
                     </Modal.Header>

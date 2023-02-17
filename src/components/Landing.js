@@ -3,6 +3,7 @@ import Register from './Register'
 import Login from './Login'
 import {Button, Carousel, Modal} from 'react-bootstrap'
 import RegisterModal from '../modals/RegisterModal'
+import SignInModal from '../modals/SignInModal'
 
 class Landing extends Component{
     constructor(props){
@@ -20,6 +21,7 @@ class Landing extends Component{
                     <img src="./Logo.png" id="landing-logo" alt="yellow circle with black house"/>
                     <h1>HouseHuntr</h1> 
                     <RegisterModal register={this.props.register} loggedIn={this.props.loggedIn} users={this.props.users} handleChange={this.props.handleChange}/>
+                    <SignInModal login={this.props.login} handleChange={this.props.handleChange}/>
                 </div>
                 
                 <div id="carousel-div">
