@@ -102,7 +102,7 @@ a{
 }
 
 #description{
-  min-width:85vw;
+  min-width:75vw;
   min-height: 30vh;
   display: flex;
   align-items:flex-end;

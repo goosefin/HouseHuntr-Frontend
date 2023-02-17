@@ -1,14 +1,14 @@
 import React, {Component} from 'react'
 import Register from './Register'
 import Login from './Login'
-import {Button, Carousel} from 'react-bootstrap'
+import {Button, Carousel, Modal} from 'react-bootstrap'
 
 class Landing extends Component{
     constructor(props){
         super(props)
         this.state = {
             users:this.props.users,
-            loggedIn: this.props.loggedIn
+            loggedIn: this.props.loggedIn,
         }
     }
 
