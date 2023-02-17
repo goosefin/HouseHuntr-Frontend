@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Register from './Register'
 import Login from './Login'
 import {Button, Carousel, Modal} from 'react-bootstrap'
+import RegisterModal from '../modals/RegisterModal'
 
 class Landing extends Component{
     constructor(props){
@@ -18,7 +19,7 @@ class Landing extends Component{
                 <div id="title">
                     <img src="./Logo.png" id="landing-logo" alt="yellow circle with black house"/>
                     <h1>HouseHuntr</h1> 
-                    <Button id="landing-reg-log" variant="outline-secondary">Register/Log In</Button>
+                    <RegisterModal register={this.props.register} loggedIn={this.props.loggedIn} users={this.props.users} handleChange={this.props.handleChange}/>
                 </div>
                 
                 <div id="carousel-div">
