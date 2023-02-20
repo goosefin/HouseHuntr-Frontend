@@ -147,7 +147,7 @@ a{
   align-items: center;
 }
 
-#title{
+.nav-bar{
   display:flex;
   margin-top: .5em;
   min-width: 98vw;
@@ -170,6 +170,11 @@ a{
   margin-top: 2em;
 }
 
+#sign-out{
+  margin-left: auto;
+  margin-right: 5px;
+}
+
 #dash-ctrl{
   display: flex;
   justify-content: space-between;
@@ -177,6 +182,9 @@ a{
 
 .font-dash{
   font-family: 'Fira Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #nav-listing{

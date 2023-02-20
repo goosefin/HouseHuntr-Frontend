@@ -17,7 +17,7 @@ class Landing extends Component{
     render(){
         return(
             <div id="landing">
-                <div id="title">
+                <div className="nav-bar">
                     <img src="./Logo.png" id="landing-logo" alt="yellow circle with black house"/>
                     <h1>HouseHuntr</h1> 
                     <RegisterModal register={this.props.register} loggedIn={this.props.loggedIn} users={this.props.users} handleChange={this.props.handleChange}/>
