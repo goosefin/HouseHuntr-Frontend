@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import Register from './Register'
-import Login from './Login'
-import {Button, Carousel, Modal} from 'react-bootstrap'
+import {Carousel} from 'react-bootstrap'
+import NavBar from './NavBar'
 import RegisterModal from '../modals/RegisterModal'
 import SignInModal from '../modals/SignInModal'
+
 
 class Landing extends Component{
     constructor(props){
@@ -17,12 +17,13 @@ class Landing extends Component{
     render(){
         return(
             <div id="landing">
-                <div className="nav-bar">
+                {/* <div className="nav-bar">
                     <img src="./Logo.png" id="landing-logo" alt="yellow circle with black house"/>
                     <h1>HouseHuntr</h1> 
                     <RegisterModal register={this.props.register} loggedIn={this.props.loggedIn} users={this.props.users} handleChange={this.props.handleChange}/>
                     <SignInModal login={this.props.login} handleChange={this.props.handleChange}/>
-                </div>
+                </div> */}
+                <NavBar handleChange={this.props.handleChange} register={this.props.register} login={this.props.login} users={this.props.user} loggedIn={this.props.loggedIn}/>
                 
                 <div id="carousel-div">
                     <Carousel >
@@ -58,13 +59,6 @@ class Landing extends Component{
                         <p>See all of your saved listings in one centralized application</p>
                     </div>
                 </div>
-
-                {/* <div id="log-reg">
-                    <h3>Register</h3>
-                    <Register register={this.props.register} handleChange={this.props.handleChange}/>
-                    <h3>Log In</h3>
-                    <Login login={this.props.login} handleChange={this.props.handleChange}/>
-                </div> */}
             </div>
         )
     }
